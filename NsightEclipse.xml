@@ -29,6 +29,6 @@
     <sm-arch>sm52</sm-arch>
     <sm-arch>sm53</sm-arch>
     <type>exe</type>
-    <primary-file>template.cu</primary-file>
+    <primary-file>rtrl.cu</primary-file>
     <supported-env>linux:x86_64, linux:i686, windows7, macosx:x86_64, macosx:i686, :arm, linux:ppc64le</supported-env>
 </entry>

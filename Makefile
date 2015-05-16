@@ -220,7 +220,7 @@ endif
 # Target rules
 all: build
 
-build: template
+build: rtrl
 
 check.deps:
 ifeq ($(SAMPLE_ENABLED),0)
@@ -229,22 +229,22 @@ else
 	@echo "Sample is ready - all dependencies have been met"
 endif
 
-template.o:template.cu
+rtrl.o:rtrl.cu
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-template_cpu.o:template_cpu.cpp
+rtrl_cpu.o:rtrl_cpu.cpp
 	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-template: template.o template_cpu.o
+rtrl: rtrl.o rtrl_cpu.o
 	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
 	$(EXEC) mkdir -p ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
 	$(EXEC) cp $@ ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
 
 run: build
-	$(EXEC) ./template
+	$(EXEC) ./rtrl
 
 clean:
-	rm -f template template.o template_cpu.o
-	rm -rf ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)/template
+	rm -f rtrl rtrl.o rtrl_cpu.o
+	rm -rf ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)/rtrl
 
 clobber: clean
