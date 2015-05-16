@@ -1,2 +1,2 @@
 # RTRL
-A RTRL implementation using cudNN
+A RTRL implementation using CUDA
