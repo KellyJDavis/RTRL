@@ -18,7 +18,7 @@
     <keyconcepts level="basic">Device Memory Allocation</keyconcepts>
     <include-path>./</include-path>
     <include-path>../</include-path>
-    <include-path>../../common/inc</include-path>
+    <include-path>common/inc</include-path>
     <devicecompilation>whole</devicecompilation>
     <sm-arch>sm20</sm-arch>
     <sm-arch>sm30</sm-arch>
