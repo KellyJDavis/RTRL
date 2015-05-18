@@ -237,14 +237,13 @@ rtrl_cpu.o:rtrl_cpu.cpp
 
 rtrl: rtrl.o rtrl_cpu.o
 	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
-	$(EXEC) mkdir -p ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
-	$(EXEC) cp $@ ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)
+	$(EXEC) mv $@ ../
 
 run: build
 	$(EXEC) ./rtrl
 
 clean:
 	rm -f rtrl rtrl.o rtrl_cpu.o
-	rm -rf ../../bin/$(TARGET_ARCH)/$(TARGET_OS)/$(BUILD_TYPE)/rtrl
+	rm -rf ../rtrl
 
 clobber: clean
