@@ -240,7 +240,7 @@ rtrl: rtrl.o rtrl_cpu.o
 	$(EXEC) mv $@ ../
 
 run: build
-	$(EXEC) ./rtrl
+	$(EXEC) ../rtrl
 
 clean:
 	rm -f rtrl rtrl.o rtrl_cpu.o
