@@ -222,28 +222,20 @@ all: build
 
 build: rtrl
 
-check.deps:
-ifeq ($(SAMPLE_ENABLED),0)
-	@echo "Sample will be waived due to the above missing dependencies"
-else
-	@echo "Sample is ready - all dependencies have been met"
-endif
+OBJS = main.o \
+       arguments.o
 
-rtrl.o:rtrl.cu
-	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
+.cpp.o:
+	$(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-rtrl_cpu.o:rtrl_cpu.cpp
-	$(EXEC) $(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
-
-rtrl: rtrl.o rtrl_cpu.o
-	$(EXEC) $(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
-	$(EXEC) mv $@ ../
+rtrl: ${OBJS}
+	$(NVCC) $(ALL_LDFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
+	mv $@ ../
 
 run: build
 	$(EXEC) ../rtrl
 
 clean:
-	rm -f rtrl rtrl.o rtrl_cpu.o
-	rm -rf ../rtrl
+	rm -f ../rtrl *.o
 
 clobber: clean
