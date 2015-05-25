@@ -12,7 +12,7 @@
 
 * [cusplibrary](https://github.com/cusplibrary/cusplibrary) v0.5.1 or later.
 
-### Building Executable
+### Building the Executable
 
 Once the dependencies are installed and the environment is set up to allow their access, one can compile *RTRL* by opening a terminal and entering the following commands:
 
