@@ -225,7 +225,10 @@ build: rtrl
 OBJS = main.o \
        arguments.o
 
-.cpp.o:
+%.o: %.cu
+	$(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
+
+%.o: %.cpp
 	$(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
 rtrl: ${OBJS}
