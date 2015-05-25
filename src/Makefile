@@ -222,8 +222,8 @@ all: build
 
 build: rtrl
 
-OBJS = main.o \
-       arguments.o
+OBJS = arguments.o \
+       main.o
 
 %.o: %.cu
 	$(NVCC) $(INCLUDES) $(ALL_CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
