@@ -22,11 +22,10 @@ namespace rtrl
         m_is_valid(true),
         m_d(),
         m_x(),
-        m_w(),
-        m_y_1() 
+        m_w()
     {
         // Check if the number of arguments is incorrect
-        if(argc != 5)
+        if(argc != 4)
         {
             // Set message
             m_message = "Incorrect number of arguments.";
@@ -44,7 +43,6 @@ namespace rtrl
             cusp::io::read_matrix_market_file(m_d, argv[1]);
             cusp::io::read_matrix_market_file(m_x, argv[2]);
             cusp::io::read_matrix_market_file(m_w, argv[3]);
-            cusp::io::read_matrix_market_file(m_y_1, argv[4]);
         }
         catch(const std::exception& exception)
         {

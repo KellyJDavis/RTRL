@@ -32,11 +32,6 @@ namespace rtrl
       return m_w;
     }
 
-    inline const DeviceMatrix& Arguments::get_initial_outputs()
-    {
-      return m_y_1;
-    }
-
     inline const HostMatrix& Arguments::get_target_values() const
     {
       return m_d;

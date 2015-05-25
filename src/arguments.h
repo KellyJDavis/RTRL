@@ -75,13 +75,6 @@ namespace rtrl
         DeviceMatrix& get_weight_matrix();
 
         ///
-        /// Returns, initial outputs. A 1xn matrix that contains the initial outputs of
-        /// the units at time 1, as the first external input signals are applied.
-        ///
-        /// @return The initial outputs
-        const DeviceMatrix& get_initial_outputs();
-
-        ///
         /// Returns, target values, as defined in williams1989learning. A Txn sparse
         /// matrix that contains one row for each timestep and one column for each
         /// unit. If row t and column k of g_d is zero, that indicates the output for
@@ -128,11 +121,6 @@ namespace rtrl
         /// Weight matrix, as defined in williams1989learning. A nx(n+m) matrix
         /// that contains the weights for the RTRL neurual network.
         DeviceMatrix m_w;
-
-        /// Initial outputs. A 1xn matrix that contains the initial outputs of the
-        /// units at time 1, as the first external input signals are applied.
-        /// TODO: Delete this after initial use as it is not needed after that.
-        DeviceMatrix m_y_1;
     };
 
 }
