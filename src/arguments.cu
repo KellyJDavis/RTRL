@@ -7,6 +7,8 @@
 //
 
 
+#include <exception>
+
 #include <cusp/coo_matrix.h>
 #include <cusp/io/matrix_market.h>
 
@@ -39,10 +41,21 @@ namespace rtrl
             return;
         }
 
-        // Load matrices
-        cusp::io::read_matrix_market_file(g_d, argv[1]);
-        cusp::io::read_matrix_market_file(g_x, argv[2]);
-        cusp::io::read_matrix_market_file(g_w, argv[3]);
-        cusp::io::read_matrix_market_file(g_y_1, argv[4]);
+        // Try to load matrices
+        try
+        {
+            cusp::io::read_matrix_market_file(g_d, argv[1]);
+            cusp::io::read_matrix_market_file(g_x, argv[2]);
+            cusp::io::read_matrix_market_file(g_w, argv[3]);
+            cusp::io::read_matrix_market_file(g_y_1, argv[4]);
+        }
+        catch(const std::exception& exception)
+        {
+            // Set message
+            m_message = exception.what();
+
+            // Flag validity
+            m_is_valid = false;
+        }
     }
 }
