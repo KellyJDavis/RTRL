@@ -23,7 +23,11 @@ namespace rtrl
         if(argc != 4)
         {
             // Set message
-            m_message = "Incorrect number of arguments.";
+            m_message  = "The proper calling syntax is:";
+            m_message += "\n\n  '";
+            m_message += argv[0];
+            m_message += " <target values> <external inputs> <initial weight matrix>'\n\n";
+            m_message += "where all passed parameters are matrix market files.";
 
             // Flag validity
             m_is_valid = false;
