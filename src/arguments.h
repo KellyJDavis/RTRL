@@ -104,7 +104,7 @@ namespace rtrl
         /// @param filename The file name of the matrix market file
         /// @return A bool indicating successof the loading
         template <typename Matrix>
-        bool Arguments::read_matrix_market_file(Matrix& mtx, const std::string& filename);
+        bool read_matrix_market_file(Matrix& mtx, const std::string& filename);
 
         /// A string describing the problem with the args
         std::string m_message;
