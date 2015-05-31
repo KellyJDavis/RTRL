@@ -77,7 +77,7 @@ namespace rtrl
         ///
         /// Returns, target values, as defined in williams1989learning. A Txn sparse
         /// matrix that contains one row for each timestep and one column for each
-        /// unit. If row t and column k of g_d is zero, that indicates the output for
+        /// unit. If row t and column k of m_d is zero, that indicates the output for
         /// unit k at time t has no target value. If that entry is non-zero, then
         /// that indicates the output for unit k at time t is constrained to be
         /// the specified non-zero value. Resides on the host as this will be a
@@ -104,7 +104,7 @@ namespace rtrl
 
         /// Target values, as defined in williams1989learning. A Txn sparse matrix
         /// that contains one row for each timestep and one column for each unit.
-        /// If row t and column k of g_d is zero, that indicates the output for
+        /// If row t and column k of m_d is zero, that indicates the output for
         /// unit k at time t has no target value. If that entry is non-zero, then
         /// that indicates the output for unit k at time t is constrained to be
         /// the specified non-zero value. Resides on the host as this will be a
