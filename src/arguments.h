@@ -96,6 +96,16 @@ namespace rtrl
         const HostMatrix& get_external_input_signals() const;
 
     private:
+        ///
+        /// Utility function that loads a matrix market file from disk and returns a
+        /// bool indicating the success of this load
+        ///
+        /// @param mtx The matrix into which to load the matrix
+        /// @param filename The file name of the matrix market file
+        /// @return A bool indicating successof the loading
+        template <typename Matrix>
+        bool Arguments::read_matrix_market_file(Matrix& mtx, const std::string& filename);
+
         /// A string describing the problem with the args
         std::string m_message;
 

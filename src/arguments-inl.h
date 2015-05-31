@@ -9,6 +9,11 @@
 #ifndef RTRL_arguments_inl_h
 #define RTRL_arguments_inl_h
 
+#include <exception>
+
+#include <cusp/coo_matrix.h>
+#include <cusp/io/matrix_market.h>
+
 
 namespace rtrl
 {
@@ -40,6 +45,34 @@ namespace rtrl
     inline const HostMatrix& Arguments::get_external_input_signals() const
     {
       return m_x;
+    }
+
+    template <typename Matrix>
+    inline bool Arguments::read_matrix_market_file(Matrix& mtx, const std::string& filename)
+    {
+        // Try to load matrices
+        try
+        {
+            cusp::io::read_matrix_market_file(mtx, filename);
+        }
+        catch(const std::exception& exception)
+        {
+            // Add filename to m_message
+            m_message  = "Error in reading file '";
+            m_message += filename;
+            m_message += "'. ";
+
+            // Add error message to m_message
+            m_message += "Error message '";
+            m_message += exception.what();
+            m_message += "'. ";
+
+            // Flag validity
+            m_is_valid = false;
+        }
+
+        // Return validity
+        return m_is_valid;
     }
 }
 
