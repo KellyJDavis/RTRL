@@ -1,4 +1,6 @@
-![Fully Connected Neural Networkd](https://github.com/kdavis-mozilla/RTRL/blob/master/doc/RTRL.gif)
+<p align="center">
+  <img src="https://github.com/kdavis-mozilla/RTRL/blob/master/doc/RTRL.gif" alt="Fully Connected Neural Network"/>
+</p>
 
 # RTRL
 
