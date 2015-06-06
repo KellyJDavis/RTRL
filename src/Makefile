@@ -222,7 +222,8 @@ all: build
 
 build: rtrl
 
-OBJS = arguments.o \
+OBJS = algorithm.o \
+       arguments.o \
        main.o
 
 %.o: %.cu

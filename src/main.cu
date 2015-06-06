@@ -6,9 +6,12 @@
 //
 //
 
+
 #include <iostream>
 
+#include "algorithm.h"
 #include "arguments.h"
+
 
 using namespace rtrl;
 
@@ -26,6 +29,15 @@ int main (int argc,char * argv[])
         // Return error
         return arguments.get_return_code();
     }
+
+    // Create Algorithm
+    Algorithm algorithm(arguments);
+
+    // Run algorithm
+    algorithm.run();
+
+    // Save results
+    algorithm.save();
 
     // Return success
     return 0;

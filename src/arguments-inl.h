@@ -9,6 +9,7 @@
 #ifndef RTRL_arguments_inl_h
 #define RTRL_arguments_inl_h
 
+
 #include <sstream>
 #include <exception>
 
