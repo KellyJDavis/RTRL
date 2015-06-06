@@ -15,7 +15,7 @@
 
 namespace rtrl
 {
-    inline Algorithm::Algorithm(const Arguments& arguments)
+    inline Algorithm::Algorithm(Arguments& arguments)
     : m_arguments(arguments)
     {
     }

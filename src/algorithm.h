@@ -26,7 +26,7 @@ namespace rtrl
         ///
         /// \param arguments The Arguments used to construct the RTRL Algorithm
         ///
-        Algorithm(const Arguments& arguments);
+        Algorithm(Arguments& arguments);
 
         ///
         /// Runs the RTRL Algorithm
@@ -39,7 +39,7 @@ namespace rtrl
         void save();
     private:
         /// Command line Arguments
-        const Arguments& m_arguments;
+        Arguments& m_arguments;
     };
 }
 

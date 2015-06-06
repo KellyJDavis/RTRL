@@ -8,8 +8,9 @@
 
 
 #include <cstdio>
+#include <iostream>
 
-#include <cusp/coo_matrix.h>
+#include <cusp/io/matrix_market.h>
 
 #include "algorithm.h"
 
@@ -23,10 +24,13 @@ namespace rtrl
 
     void Algorithm::save()
     {
-        // Obtain unique weight matrix filename
+        // Obtain unique weight matrix filename (TODO: User supplied?)
         const char *filename = tmpnam(0);
 
         // Write weght matrix to filename
-        write_matrix_market_file(m_arguments.get_weight_matrix(),filename);
+        cusp::io::write_matrix_market_file(m_arguments.get_weight_matrix(),filename);
+
+        // Print status message
+        std::cout << "Final weight matrix written to '" << filename << "'." << std::endl;        
     }
 }
