@@ -9,6 +9,7 @@
 #ifndef RTRL_arguments_inl_h
 #define RTRL_arguments_inl_h
 
+#include <sstream>
 #include <exception>
 
 #include <cusp/coo_matrix.h>
@@ -57,15 +58,17 @@ namespace rtrl
         }
         catch(const std::exception& exception)
         {
-            // Add filename to m_message
-            m_message  = "Error in reading file '";
-            m_message += filename;
-            m_message += "'. ";
+            // Create string stream
+            std::stringstream message;
 
-            // Add error message to m_message
-            m_message += "Error message '";
-            m_message += exception.what();
-            m_message += "'. ";
+            // Add filename to message
+            message << "Error in reading file '" << filename << "'. ";
+
+            // Add error message to message
+            message << "Error message: '" << exception.what() << "'.";
+
+            // Convert message to string
+            m_message = message.str();
 
             // Flag validity
             m_is_valid = false;
