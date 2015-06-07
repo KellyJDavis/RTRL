@@ -24,7 +24,7 @@ namespace rtrl
 
     void Algorithm::save()
     {
-        // Obtain unique weight matrix filename (TODO: User supplied?)
+        // Obtain unique weight matrix filename
         const char *filename = tmpnam(0);
 
         // Write weght matrix to filename
