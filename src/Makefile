@@ -222,6 +222,8 @@ all: build
 
 build: rtrl
 
+ALL_CCFLAGS +=-Xcudafe "--diag_suppress=unsigned_compare_with_zero"
+
 OBJS = algorithm.o \
        arguments.o \
        main.o
