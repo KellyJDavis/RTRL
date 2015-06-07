@@ -7,6 +7,8 @@
 //
 
 
+#include <sstream>
+
 #include <cusp/io/matrix_market.h>
 
 #include "arguments.h"
@@ -24,12 +26,16 @@ namespace rtrl
         // Check if the number of arguments is incorrect
         if(argc != 4)
         {
+            // Create string stream
+            std::stringstream message;
+
             // Set message
-            m_message  = "The proper calling syntax is:";
-            m_message += "\n\n  '";
-            m_message += argv[0];
-            m_message += " <target values> <external inputs> <initial weight matrix>'\n\n";
-            m_message += "where all passed parameters are matrix market files.";
+            message << "The proper calling syntax is:\n\n";
+            message << " '" << argv[0] << " <target values> <external inputs> <initial weight matrix>'\n\n";
+            message << "where all passed parameters are matrix market files.";
+
+            // Convert message to string
+            m_message = message.str();
 
             // Flag validity
             m_is_valid = false;
