@@ -34,9 +34,9 @@ namespace rtrl
           return;
 
         // Load matrices
-        cusp::io::read_matrix_market_file(m_d, argv[1]);
-        cusp::io::read_matrix_market_file(m_x, argv[2]);
-        cusp::io::read_matrix_market_file(m_w, argv[3]);
+        read_matrix_market_file(m_d, argv[1]);
+        read_matrix_market_file(m_x, argv[2]);
+        read_matrix_market_file(m_w, argv[3]);
 
         // Check T dimension
         if(!(m_is_valid = is_t_dim_correct(m_d.num_rows,m_x.num_rows,m_message)))
